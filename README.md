@@ -9,7 +9,7 @@ An open source interface for BSCswap -- a protocol for decentralized exchange of
 - Docs: [uniswap.org/docs/](https://uniswap.org/docs/)
 - Twitter: [@BSCswapProtocol](https://twitter.com/BSCswapProtocol)
 - Email: [hyunsiklee@bscswap.com](mailto:hyunsiklee@bscswap.com)
-- Discord: [BSCswap](https://discord.gg/xjNuc56)
+- Discord: [BSCswap](https://discord.gg/mCZSA3w)
 
 ## Accessing the BSCswap Interface
 
