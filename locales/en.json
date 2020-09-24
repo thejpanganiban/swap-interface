@@ -4,6 +4,7 @@
   "switchNetwork": "Please switch to {{ correctNetwork }}",
   "installWeb3MobileBrowser": "Please visit us from a web3-enabled mobile browser such as Metmamask Mobile, Trust Wallet or Coinbase Wallet.",
   "installMetamask": "Please visit us after installing Metamask on Chrome or Brave.",
+  "installBinance": "Please visit us after installing Binance Chain Wallet on Chrome or Firefox.",
   "disconnected": "Disconnected",
   "swap": "Swap",
   "swapAnyway": "Swap Anyway",
