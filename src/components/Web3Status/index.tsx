@@ -13,6 +13,7 @@ import Identicon from '../Identicon'
 import PortisIcon from '../../assets/images/portisIcon.png'
 import WalletModal from '../WalletModal'
 import { ButtonSecondary } from '../Button'
+import BinanceIcon from '../../assets/images/bnb.svg'
 import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
 import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
 import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
@@ -21,7 +22,7 @@ import { RowBetween } from '../Row'
 import { shortenAddress } from '../../utils'
 import { useAllTransactions } from '../../state/transactions/hooks'
 import { NetworkContextName } from '../../constants'
-import { injected, walletconnect, walletlink, fortmatic, portis } from '../../connectors'
+import { injected, binanceinjected, walletconnect, walletlink, fortmatic, portis } from '../../connectors'
 import Loader from '../Loader'
 
 const IconWrapper = styled.div<{ size?: number }>`
@@ -157,6 +158,12 @@ export default function Web3Status() {
   function getStatusIcon() {
     if (connector === injected) {
       return <Identicon />
+    } else if (connector === binanceinjected) {
+      return (
+        <IconWrapper size={16}>
+          <img src={BinanceIcon} alt={''} />
+        </IconWrapper>
+      )
     } else if (connector === walletconnect) {
       return (
         <IconWrapper size={16}>

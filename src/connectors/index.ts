@@ -1,4 +1,5 @@
 import { InjectedConnector } from '@web3-react/injected-connector'
+import { BinanceConnector } from '@bscswap/binance-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 import { PortisConnector } from '@web3-react/portis-connector'
@@ -20,6 +21,10 @@ export const network = new NetworkConnector({
 
 export const injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42, 56, 97]
+})
+
+export const binanceinjected = new BinanceConnector({
+  supportedChainIds: [56, 97]
 })
 
 // mainnet only
