@@ -131,7 +131,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
     if (
       typeof valueAsIntFromRoundedFloat === 'number' &&
       !Number.isNaN(valueAsIntFromRoundedFloat) &&
-      valueAsIntFromRoundedFloat < 5000
+      valueAsIntFromRoundedFloat < 9000
     ) {
       setRawSlippage(valueAsIntFromRoundedFloat)
     }
