@@ -109,7 +109,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
   let slippageError: SlippageError
   if (slippageInput !== '' && !slippageInputIsValid) {
     slippageError = SlippageError.InvalidInput
-  } else if (slippageInputIsValid && rawSlippage < 5000) {
+  } else if (slippageInputIsValid && rawSlippage < 50) {
     slippageError = SlippageError.RiskyLow
   } else if (slippageInputIsValid && rawSlippage > 8000) {
     slippageError = SlippageError.RiskyHigh
