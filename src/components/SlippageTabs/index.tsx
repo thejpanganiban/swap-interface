@@ -109,9 +109,9 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
   let slippageError: SlippageError
   if (slippageInput !== '' && !slippageInputIsValid) {
     slippageError = SlippageError.InvalidInput
-  } else if (slippageInputIsValid && rawSlippage < 50) {
+  } else if (slippageInputIsValid && rawSlippage < 5000) {
     slippageError = SlippageError.RiskyLow
-  } else if (slippageInputIsValid && rawSlippage > 500) {
+  } else if (slippageInputIsValid && rawSlippage > 8000) {
     slippageError = SlippageError.RiskyHigh
   }
 
@@ -163,31 +163,31 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
           <Option
             onClick={() => {
               setSlippageInput('')
-              setRawSlippage(10)
+              setRawSlippage(500)
             }}
-            active={rawSlippage === 10}
+            active={rawSlippage === 500}
           >
-            0.1%
+            5%
           </Option>
           <Option
             onClick={() => {
               setSlippageInput('')
-              setRawSlippage(50)
+              setRawSlippage(1000)
             }}
-            active={rawSlippage === 50}
+            active={rawSlippage === 1000}
           >
-            0.5%
+            10%
           </Option>
           <Option
             onClick={() => {
               setSlippageInput('')
-              setRawSlippage(100)
+              setRawSlippage(7000)
             }}
-            active={rawSlippage === 100}
+            active={rawSlippage === 7000}
           >
-            1%
+            70%
           </Option>
-          <OptionCustom active={![10, 50, 100].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
+          <OptionCustom active={![500, 1000, 7000].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
             <RowBetween>
               {!!slippageInput &&
               (slippageError === SlippageError.RiskyLow || slippageError === SlippageError.RiskyHigh) ? (
