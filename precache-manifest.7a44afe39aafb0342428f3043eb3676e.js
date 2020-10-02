@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c08beae393aea341906acf4a24d6317a",
+    "revision": "1d20f21db821ff98a1d82c80b91ccf4c",
     "url": "./index.html"
   },
   {
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/9.921d9d21.chunk.js"
   },
   {
-    "revision": "868cb733002c248e04f7",
-    "url": "./static/js/main.3823fe65.chunk.js"
+    "revision": "7f4f5593e031618bc1bd",
+    "url": "./static/js/main.b7ca164e.chunk.js"
   },
   {
     "revision": "942d002d98734caa84fc",
@@ -280,8 +280,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/media/magnifying-glass.52eac682.svg"
   },
   {
-    "revision": "fb35b33c0cf47f223d9365739664076e",
-    "url": "./static/media/mathwallet.fb35b33c.svg"
+    "revision": "e2a78c18f395aa629ab36fd0713550d2",
+    "url": "./static/media/mathwallet.e2a78c18.svg"
   },
   {
     "revision": "981ecca4e2e244ff635162cbb11b69ac",
