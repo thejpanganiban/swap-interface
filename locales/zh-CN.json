@@ -74,7 +74,7 @@
   "enterTokenCont": "输入令牌地址以继续",
   "priceChange": "预期降价",
   "forAtLeast": "至少 ",
-  "brokenToken": "所选令牌与BSCswap不兼容。 增加流动资金将导致资金冻结。",
+  "brokenToken": "所选令牌与MangoSwap不兼容。 增加流动资金将导致资金冻结。",
   "toleranceExplanation": "降低这一限制会降低提前的风险。然而，由于价格的正常变动，这增加了你的交易不会成功的可能性.",
   "tokenSearchPlaceholder": "搜索名称或插入令牌地址",
   "yourLiquidity": "您的流动资金",
