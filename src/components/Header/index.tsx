@@ -21,7 +21,7 @@ import Web3Status from '../Web3Status'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledAbsoluteLink href="https://mangonft.com" target="_blank" className="active">About</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://mangonft.com" target="_blank">About</StyledAbsoluteLink>
       <StyledAbsoluteLink href="#/swap" target="_blank" className="active">Exchange</StyledAbsoluteLink>
       <StyledAbsoluteLink href="#" target="_blank">Farming</StyledAbsoluteLink>
       <StyledAbsoluteLink href="#" target="_blank">Analysis</StyledAbsoluteLink>
@@ -49,10 +49,10 @@ const StyledAbsoluteLink = styled.a`
   padding-right: 10px;
   text-decoration: none;
   &:hover {
-    color: #fbe84e;
+    color: #ff6600;
   }
   &.active {
-    color: #fbe84e;
+    color: #ff6600;
   }
   @media (max-width: 400px) {
     padding-left: 10px;
