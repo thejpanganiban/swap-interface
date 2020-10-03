@@ -338,6 +338,9 @@ export default function AddLiquidity({
                     <TYPE.link fontWeight={400} color={'primaryText1'}>
                       {t('onceYouAreHappy')}
                     </TYPE.link>
+                    <TYPE.link fontWeight={400} color={'primaryText1'}>
+                      To list your BEP20 token as a default token on BSCswap, kindly visit https://forms.gle/DgMuQsYHiw14uBiVA.
+                    </TYPE.link>
                   </AutoColumn>
                 </BlueCard>
               </ColumnCenter>

@@ -165,10 +165,10 @@ export function useSwapCallback(
                     console.debug('Call threw error', call, callError)
                     let errorMessage: string
                     switch (callError.reason) {
-                      case 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
-                      case 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT':
+                      case 'BSCswapRouter: INSUFFICIENT_OUTPUT_AMOUNT':
+                      case 'BSCswapRouter: EXCESSIVE_INPUT_AMOUNT':
                         errorMessage =
-                          'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance.'
+                          'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance. If you are selling THUGS, please select Slippage Tolerance more than 50% on the top right of the settings and turn them off while add/removing the liquidity. Otherwise, THINK TWICE!!! https://twitter.com/BSCswapProtocol/status/1312157722998050816'
                         break
                       default:
                         errorMessage = `The transaction cannot succeed due to error: ${callError.reason}. This is probably an issue with one of the tokens you are swapping.`
