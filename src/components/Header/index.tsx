@@ -29,7 +29,7 @@ const Nav: React.FC = () => {
 }
 
 const StyledNav = styled.nav`
-  align-items: center;
+  align-items: left;
   display: flex;
   font-size: 20px;
   line-height: 45px;
@@ -40,15 +40,15 @@ const StyledNav = styled.nav`
 `
 
 const StyledAbsoluteLink = styled.a`
-  color: #000000;
+  color: #FFBB00;
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
   &:hover {
-    color: #FFBB00;
+    color: #FFFFFF;
   }
   &.active {
-    color: #FFBB00;
+    color: #FFFFFF;
   }
   @media (max-width: 400px) {
     padding-left: 10px;
