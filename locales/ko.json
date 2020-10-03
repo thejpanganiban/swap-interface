@@ -170,7 +170,6 @@
   "liquidityProvider": "유동성 제공자 수수료",
   "enterAValid": "Enter a valid slippage percentage",
   "yourTXMayFail": "거래가 실패 할 수 있습니다",
-  "yourTXMayFront": "Your transaction may be frontrun",
   "route": "Route",
   "priceImpact": "가격 영향"
 }
