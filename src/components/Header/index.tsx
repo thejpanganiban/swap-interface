@@ -111,11 +111,11 @@ const BalanceText = styled(Text)`
 `
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
-  [ChainId.MAINNET]: 'Ethereum Mainnet',
-  [ChainId.RINKEBY]: 'Rinkeby',
-  [ChainId.ROPSTEN]: 'Ropsten',
-  [ChainId.GÖRLI]: 'Görli',
-  [ChainId.KOVAN]: 'Kovan',
+  [ChainId.MAINNET]: 'Wrong Network',
+  [ChainId.RINKEBY]: 'Wrong Network',
+  [ChainId.ROPSTEN]: 'Wrong Network',
+  [ChainId.GÖRLI]: 'Wrong Network',
+  [ChainId.KOVAN]: 'Wrong Network',
   [ChainId.BSC_MAINNET]: null,
   [ChainId.BSC_TESTNET]: 'Testnet'
 }

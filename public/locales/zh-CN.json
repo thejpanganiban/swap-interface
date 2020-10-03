@@ -157,7 +157,6 @@
   "liquidityProvider": " 提供流动资金的佣金",
   "enterAValid": "输入可接受的滑点百分比",
   "yourTXMayFail": "您的交易可能失败",
-  "yourTXMayFront": "您的交易可以提前",
   "route": "路线",
   "priceImpact": "对价格的影响"
 }

@@ -170,7 +170,6 @@
   "liquidityProvider": "Liquidity Provider Fee",
   "enterAValid": "Enter a valid slippage percentage",
   "yourTXMayFail": "Your transaction may fail",
-  "yourTXMayFront": "Your transaction may be frontrun",
   "route": "Route",
   "priceImpact": "Price Impact"
 }

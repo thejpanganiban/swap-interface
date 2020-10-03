@@ -111,7 +111,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
     slippageError = SlippageError.InvalidInput
   } else if (slippageInputIsValid && rawSlippage < 50) {
     slippageError = SlippageError.RiskyLow
-  } else if (slippageInputIsValid && rawSlippage > 8000) {
+  } else if (slippageInputIsValid && rawSlippage > 500) {
     slippageError = SlippageError.RiskyHigh
   }
 
@@ -172,22 +172,31 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
           <Option
             onClick={() => {
               setSlippageInput('')
-              setRawSlippage(1000)
+              setRawSlippage(100)
             }}
-            active={rawSlippage === 1000}
+            active={rawSlippage === 100}
           >
-            10%
+            1%
           </Option>
           <Option
             onClick={() => {
               setSlippageInput('')
-              setRawSlippage(7000)
+              setRawSlippage(250)
             }}
-            active={rawSlippage === 7000}
+            active={rawSlippage === 250}
           >
-            70%
+            2.5%
           </Option>
-          <OptionCustom active={![50, 1000, 7000].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
+          <Option
+            onClick={() => {
+              setSlippageInput('')
+              setRawSlippage(5100)
+            }}
+            active={rawSlippage === 5100}
+          >
+            51%
+          </Option>
+          <OptionCustom active={![50, 100, 250, 5100].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
             <RowBetween>
               {!!slippageInput &&
               (slippageError === SlippageError.RiskyLow || slippageError === SlippageError.RiskyHigh) ? (
@@ -223,7 +232,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
               ? t('enterAValid')
               : slippageError === SlippageError.RiskyLow
               ? t('yourTXMayFail')
-              : t('yourTXMayFront')}
+              : t('warningHighRisk')}
           </RowBetween>
         )}
       </AutoColumn>
