@@ -114,39 +114,19 @@ export default function Menu() {
       </StyledMenuButton>
       {chainId && open && (
         <MenuFlyout>
-          <MenuItem id="link" href={getAnalysisLink(chainId)}>
-            <PieChart size={14} />
-            {t('analytics')}
-          </MenuItem>
-          <MenuItem id="link" href="https://twitter.com/bscswapprotocol">
+          <MenuItem id="link" href="https://twitter.com/MangoNft">
             <Send size={14} />
             Twitter
           </MenuItem>
-          <MenuItem id="link" href="https://t.me/bscswap">
+          <MenuItem id="link" href="https://t.me/mangonft">
             <Send size={14} />
             {t('telegram')}
           </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/mCZSA3w">
-            <MessageCircle size={14} />
-            {t('discord')}
-          </MenuItem>
-          <MenuItem id="link" href="https://bscswap.com/WeChat.jpg">
-            <MessageCircle size={14} />
-            WeChat
-          </MenuItem>
-          <MenuItem id="link" href={CODE_LINK}>
-            <Code size={14} />
-            {t('code')}
-          </MenuItem>
-          <MenuItem id="link" href="https://medium.com/@bscswapprotocol">
+          <MenuItem id="link" href="https://medium.com/@MangoNFT/introducing-mango-nft-on-binance-smart-chain-1b543dd8b94a?_branch_match_id=840907817405664541">
             <BookOpen size={14} />
             Medium
           </MenuItem>
-          <MenuItem id="link" href="https://coinmarketcap.com/exchanges/bscswap">
-            <CheckCircle size={14} />
-            CoinMarketCap
-          </MenuItem>
-          <MenuItem id="link" href={getEtherscanLink(chainId, '0xd954551853F55deb4Ae31407c423e67B1621424A', 'address')}>
+          <MenuItem id="link" href={getEtherscanLink(chainId, '0x4cdd6316ef53fa5d90351655b35ebba0d10b65a7', 'address')}>
             <BookOpen size={14} />
             {t('bscscancontract')}
           </MenuItem>
