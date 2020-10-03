@@ -18,6 +18,44 @@ import Menu from '../Menu'
 import { RowBetween } from '../Row'
 import Web3Status from '../Web3Status'
 
+const Nav: React.FC = () => {
+  return (
+    <StyledNav>
+      <StyledAbsoluteLink href="#/swap" target="_blank" className="active">Exchange</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://bscswap.info" target="_blank">Analysis</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://bscswap.pro" target="_blank">BSCswap Pro</StyledAbsoluteLink>
+    </StyledNav>
+  )
+}
+
+const StyledNav = styled.nav`
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  line-height: 45px;
+  font-weight: 500;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`
+
+const StyledAbsoluteLink = styled.a`
+  color: #000000;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  &:hover {
+    color: #FFBB00;
+  }
+  &.active {
+    color: #FFBB00;
+  }
+  @media (max-width: 400px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+`
+
 const HeaderFrame = styled.div`
   display: flex;
   align-items: center;
@@ -136,6 +174,7 @@ export default function Header() {
             </UniIcon>
           </Title>
         </HeaderElement>
+        <Nav />
         <HeaderControls>
           <HeaderElement>
             <TestnetWrapper>
