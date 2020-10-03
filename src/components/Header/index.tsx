@@ -40,12 +40,12 @@ const StyledNav = styled.nav`
 `
 
 const StyledAbsoluteLink = styled.a`
-  color: #FFBB00;
+  color: #000000;
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
   &:hover {
-    color: #4C4C4C;
+    color: #FFBB00;
   }
   &.active {
     color: #FFBB00;
