@@ -21,11 +21,12 @@ import Web3Status from '../Web3Status'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
+      <StyledAbsoluteLink href="https://bscswap.com">BSCswap</StyledAbsoluteLink>
       <StyledAbsoluteLink href="#/swap" className="active">Exchange</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://bscswap.info" target="_blank">Analysis</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://bscswap.pro" target="_blank">BSCswap Pro</StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://degenswap.io" target="_blank">DegenSwap (Innovation Zone)</StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://pool.degenswap.io" target="_blank">LaunchField</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://bscswap.info" target="_blank">Analysis</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://medium.com/@bscswapprotocol" target="_blank">Medium</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://bscscan.com/token/0xb37b51c5c4c934468b49b55fec15e76c9b538ff3" target="_blank">BscScan</StyledAbsoluteLink>
     </StyledNav>
   )
 }

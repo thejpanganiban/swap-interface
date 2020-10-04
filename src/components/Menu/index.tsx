@@ -3,8 +3,7 @@ import { BookOpen, Code, PieChart, MessageCircle, Send, CheckCircle } from 'reac
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import useToggle from '../../hooks/useToggle'
-import { useActiveWeb3React } from '../../hooks'
-import { getEtherscanLink, getAnalysisLink } from '../../utils'
+import { getAnalysisLink } from '../../utils'
 import { useTranslation } from 'react-i18next'
 
 import { ExternalLink } from '../../theme'
@@ -85,7 +84,6 @@ const CODE_LINK = 'https://github.com/bscswap/contracts'
 export default function Menu() {
   const node = useRef<HTMLDivElement>()
   const [open, toggle] = useToggle(false)
-  const { chainId } = useActiveWeb3React()
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -112,9 +110,9 @@ export default function Menu() {
       <StyledMenuButton onClick={toggle}>
         <StyledMenuIcon />
       </StyledMenuButton>
-      {chainId && open && (
+      {open && (
         <MenuFlyout>
-          <MenuItem id="link" href={getAnalysisLink(chainId)}>
+          <MenuItem id="link" href="https://bscswap.info">
             <PieChart size={14} />
             {t('analytics')}
           </MenuItem>
@@ -146,7 +144,7 @@ export default function Menu() {
             <CheckCircle size={14} />
             CoinMarketCap
           </MenuItem>
-          <MenuItem id="link" href={getEtherscanLink(chainId, '0xd954551853F55deb4Ae31407c423e67B1621424A', 'address')}>
+          <MenuItem id="link" href="https://bscscan.com/token/0xb37b51c5c4c934468b49b55fec15e76c9b538ff3">
             <BookOpen size={14} />
             {t('bscscancontract')}
           </MenuItem>
