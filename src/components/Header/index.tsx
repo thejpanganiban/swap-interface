@@ -21,7 +21,7 @@ import Web3Status from '../Web3Status'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledAbsoluteLink href="#/swap" target="_blank" className="active">Exchange</StyledAbsoluteLink>
+      <StyledAbsoluteLink href="#/swap" className="active">Exchange</StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://bscswap.info" target="_blank">Analysis</StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://bscswap.pro" target="_blank">BSCswap Pro</StyledAbsoluteLink>
     </StyledNav>
