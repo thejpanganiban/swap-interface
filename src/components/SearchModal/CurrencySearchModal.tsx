@@ -50,26 +50,15 @@ export default function CurrencySearchModal({
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false)
   const [invertSearchOrder, setInvertSearchOrder] = useState<boolean>(false)
   const allTokens = useAllTokens()
-
-  // if the current input is an address, and we don't have the token in context, try to fetch it and import
-  const searchToken = useToken(searchQuery)
-  const searchTokenBalance = useTokenBalance(account, searchToken)
-  const allTokenBalances_ = useAllTokenBalances()
-  const allTokenBalances = searchToken
-    ? {
-        [searchToken.address]: searchTokenBalance
-      }
-    : allTokenBalances_ ?? {}
+  const allTokenBalances = useAllTokenBalances()
 
   const tokenComparator = useTokenComparator(invertSearchOrder)
 
   const filteredTokens: Token[] = useMemo(() => {
-    if (searchToken) return [searchToken]
     return filterTokens(Object.values(allTokens), searchQuery)
-  }, [searchToken, allTokens, searchQuery])
+  }, [allTokens, searchQuery])
 
   const filteredSortedTokens: Token[] = useMemo(() => {
-    if (searchToken) return [searchToken]
     const sorted = filteredTokens.sort(tokenComparator)
     const symbolMatch = searchQuery
       .toLowerCase()
@@ -78,12 +67,11 @@ export default function CurrencySearchModal({
     if (symbolMatch.length > 1) return sorted
 
     return [
-      ...(searchToken ? [searchToken] : []),
       // sort any exact symbol matches first
       ...sorted.filter(token => token.symbol.toLowerCase() === symbolMatch[0]),
       ...sorted.filter(token => token.symbol.toLowerCase() !== symbolMatch[0])
     ]
-  }, [filteredTokens, searchQuery, searchToken, tokenComparator])
+  }, [filteredTokens, searchQuery, tokenComparator])
 
   const handleCurrencySelect = useCallback(
     (currency: Currency) => {
@@ -154,11 +142,6 @@ export default function CurrencySearchModal({
             </Text>
             <CloseIcon onClick={onDismiss} />
           </RowBetween>
-          <Tooltip
-            text={t('importAnyToken')}
-            show={tooltipOpen}
-            placement="bottom"
-          >
             <SearchInput
               type="text"
               id="token-search-input"
@@ -170,7 +153,6 @@ export default function CurrencySearchModal({
               onBlur={closeTooltip}
               onKeyDown={handleEnter}
             />
-          </Tooltip>
           {showCommonBases && (
             <CommonBases chainId={chainId} onSelect={handleCurrencySelect} selectedCurrency={hiddenCurrency} />
           )}
@@ -191,15 +173,6 @@ export default function CurrencySearchModal({
           showSendWithSwap={showSendWithSwap}
         />
         <div style={{ width: '100%', height: '1px', backgroundColor: theme.bg2 }} />
-        <Card>
-          <AutoRow justify={'center'}>
-            <div>
-              <LinkStyledButton style={{ fontWeight: 500, color: theme.text2, fontSize: 16 }} onClick={openTooltip}>
-                {t('havingTrouble')}
-              </LinkStyledButton>
-            </div>
-          </AutoRow>
-        </Card>
       </Column>
     </Modal>
   )

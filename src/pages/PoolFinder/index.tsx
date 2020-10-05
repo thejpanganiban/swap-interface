@@ -80,7 +80,7 @@ export default function PoolFinder() {
 
   return (
     <AppBody>
-      <FindPoolTabs />
+    <FindPoolTabs />
       <AutoColumn gap="md">
         <ButtonDropdownLight
           onClick={() => {
