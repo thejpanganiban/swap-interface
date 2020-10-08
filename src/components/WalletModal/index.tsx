@@ -15,8 +15,9 @@ import { ExternalLink } from '../../theme'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import TrustWalletIcon from '../../assets/images/trustwallet.svg'
 import MathWalletIcon from '../../assets/images/mathwallet.svg'
+import BinanceIcon from '../../assets/images/bnb.svg'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { injected, fortmatic, portis } from '../../connectors'
+import { injected, binanceinjected, fortmatic, portis } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { useTranslation } from 'react-i18next'
@@ -216,7 +217,7 @@ export default function WalletModal({
           return null
         }
 
-        if (!window.web3 && !window.ethereum && option.mobile) {
+        if (!window.web3 && !window.ethereum && !window.BinanceChain && option.mobile) {
           return (
             <Option
               onClick={() => {
@@ -287,6 +288,28 @@ export default function WalletModal({
         // likewise for generic
         else if (option.name === 'Injected' && isMetamask) {
           return null
+        }
+      }
+
+      // overwrite injected when needed
+      if (option.connector === binanceinjected) {
+        // don't show injected if there's no injected provider
+        if (!(window.web3 || window.BinanceChain)) {
+          if (option.name === 'Binance Chain Wallet') {
+            return (
+              <Option
+                id={`connect-${key}`}
+                key={key}
+                color={'#F9A825'}
+                header={'Install Binance Chain Wallet'}
+                subheader={null}
+                link={'https://docs.binance.org/smart-chain/wallet/binance.html'}
+                icon={BinanceIcon}
+              />
+            )
+          } else {
+            return null //dont want to return install twice
+          }
         }
       }
 

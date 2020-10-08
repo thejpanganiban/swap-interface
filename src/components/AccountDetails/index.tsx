@@ -12,7 +12,8 @@ import Transaction from './Transaction'
 import { SUPPORTED_WALLETS } from '../../constants'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { getEtherscanLink } from '../../utils'
-import { injected, walletconnect, walletlink, fortmatic, portis } from '../../connectors'
+import { injected, binanceinjected, walletconnect, walletlink, fortmatic, portis } from '../../connectors'
+import BinanceIcon from '../../assets/images/bnb.svg'
 import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
 import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
 import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
@@ -246,6 +247,12 @@ export default function AccountDetails({
       return (
         <IconWrapper size={16}>
           <Identicon />
+        </IconWrapper>
+      )
+    } else if (connector === binanceinjected) {
+      return (
+        <IconWrapper size={16}>
+          <img src={BinanceIcon} alt={'binance wallet logo'} />
         </IconWrapper>
       )
     } else if (connector === walletconnect) {

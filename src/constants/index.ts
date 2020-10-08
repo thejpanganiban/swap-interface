@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { ChainId, JSBI, Percent, Token, WETH } from '@bscswap/sdk'
 
-import { injected, walletconnect, walletlink } from '../connectors'
+import { injected, binanceinjected, walletconnect, walletlink } from '../connectors'
 
 export const ROUTER_ADDRESS = '0xd954551853F55deb4Ae31407c423e67B1621424A'
 
@@ -100,6 +100,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#010101',
     primary: true
+  },
+  BINANCE: {
+    connector: binanceinjected,
+    name: 'Binance Chain Wallet',
+    iconName: 'bnb.svg',
+    description: 'A Crypto Wallet for Binance Smart Chain',
+    href: null,
+    color: '#F9A825'
   },
   METAMASK: {
     connector: injected,
