@@ -49,6 +49,7 @@ export default function CurrencyList({
       const currency = index === 0 ? Currency.ETHER : currencies[index - 1]
       const key = currencyKey(currency)
       const isDefault = isDefaultToken(defaultTokens, currency)
+      const customAdded = Boolean(!isDefault && currency instanceof Token && allTokens[currency.address])
       const balance = currency === ETHER ? ETHBalance : allBalances[key]
 
       const zeroBalance = balance && JSBI.equal(JSBI.BigInt(0), balance.raw)
@@ -68,6 +69,34 @@ export default function CurrencyList({
             <CurrencyLogo currency={currency} size={'24px'} style={{ marginRight: '14px' }} />
             <Column>
               <Text fontWeight={500}>{currency.symbol}</Text>
+              <FadedSpan>
+                {customAdded ? (
+                  <TYPE.main fontWeight={500}>
+                    Added by user
+                    <LinkStyledButton
+                      onClick={event => {
+                        event.stopPropagation()
+                        if (currency instanceof Token) removeToken(chainId, currency.address)
+                      }}
+                    >
+                      (Remove)
+                    </LinkStyledButton>
+                  </TYPE.main>
+                ) : null}
+                {!isDefault && !customAdded ? (
+                  <TYPE.main fontWeight={500}>
+                    Found by address
+                    <LinkStyledButton
+                      onClick={event => {
+                        event.stopPropagation()
+                        if (currency instanceof Token) addToken(currency)
+                      }}
+                    >
+                      (Add)
+                    </LinkStyledButton>
+                  </TYPE.main>
+                ) : null}
+              </FadedSpan>
             </Column>
           </RowFixed>
           <AutoColumn>

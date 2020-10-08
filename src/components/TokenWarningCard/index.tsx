@@ -97,13 +97,15 @@ export function TokenWarningCards({ currencies }: { currencies: { [field in Fiel
       <AutoColumn gap="lg">
         <AutoRow gap="6px">
           <StyledWarningIcon />
-          <TYPE.main color={'red2'}>Token not supported on BSCswap</TYPE.main>
+          <TYPE.main color={'red2'}>Token imported</TYPE.main>
         </AutoRow>
         <TYPE.body color={'red2'}>
-          We have decided to stop supporting custom tokens trading on BSCswap.com. Instead, you can trade them on DegenSwap.io with your own risk.
+          Anyone can create and name any BEP20 token on Binance Smart Chain, including creating fake versions of existing tokens
+          and tokens that claim to represent projects that do not have a token.
         </TYPE.body>
         <TYPE.body color={'red2'}>
-          There is a possibility that any new tokens could be a scam or rug pull and there is a high chance to lose money for trading them. Always DYOR.
+          Similar to BscScan, this site can load arbitrary tokens via token addresses. Please do your own research
+          before interacting with any BEP20 token.
         </TYPE.body>
         {Object.keys(currencies).map(field => {
           const dismissed = field === Field.INPUT ? dismissedToken0 : dismissedToken1
@@ -113,6 +115,22 @@ export function TokenWarningCards({ currencies }: { currencies: { [field in Fiel
         })}
         <RowBetween>
           <div />
+          <ButtonError
+            error={true}
+            width={'140px'}
+            padding="0.5rem 1rem"
+            style={{
+              borderRadius: '10px'
+            }}
+            onClick={() => {
+              dismissToken0 && dismissToken0()
+              dismissToken1 && dismissToken1()
+            }}
+          >
+            <TYPE.body color="white" className="token-dismiss-button">
+              I understand
+            </TYPE.body>
+          </ButtonError>
           <div />
         </RowBetween>
       </AutoColumn>

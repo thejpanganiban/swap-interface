@@ -86,7 +86,9 @@ export default function CurrencyLogo({
 
   return (
     <Emoji {...rest} size={size}>
-      N/A
+      <span role="img" aria-label="Thinking">
+        🤔
+      </span>
     </Emoji>
   )
 }

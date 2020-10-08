@@ -339,7 +339,7 @@ export default function AddLiquidity({
                       {t('onceYouAreHappy')}
                     </TYPE.link>
                     <TYPE.link fontWeight={400} color={'primaryText1'}>
-                      Currently, adding new tokens are not supported on BSCswap.com, please visit DegenSwap.io instead.
+                      To list your BEP20 token as a default token on BSCswap, kindly visit https://forms.gle/DgMuQsYHiw14uBiVA.
                     </TYPE.link>
                   </AutoColumn>
                 </BlueCard>
