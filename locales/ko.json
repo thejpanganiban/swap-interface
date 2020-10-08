@@ -87,7 +87,6 @@
   "forAtLeast": "적어도",
   "brokenToken": "선택한 토큰은 BSCswap과 호환되지 않습니다. 유동성을 추가하면 자금이 잠 깁니다.",
   "toleranceExplanation": "이 한계를 낮추면 위험이 줄어 듭니다. 그러나 이것은 정상적인 가격 변동으로 인해 거래가 실패 할 가능성이 더 높습니다.",
-  "tokenSearchPlaceholder": "이름 검색 또는 주소 붙여 넣기",
   "yourLiquidity": "유동성",
   "loading": "Loading",
   "connectToViewLiquidity": "유동성을 보려면 지갑에 연결하세요..",
@@ -129,8 +128,6 @@
   "connectToWallet": "지갑에 연결",
   "connectToFind": "지갑에 연결하여 풀 찾기",
   "selectToFind": "유동성을 찾으려면 토큰을 선택하십시오.",
-  "findAToken": "이름이나 심볼을 검색하거나 아래에 주소를 붙여 넣어 토큰을 찾습니다.",
-  "importAnyToken": "토큰 주소를 검색 필드에 붙여 넣어 모든 토큰을 목록으로 가져옵니다.",
   "tokenName": "토큰 이름",
   "havingTrouble": "토큰을 찾는 데 문제가 있습니까?",
   "commonBases": "Common bases",
@@ -170,7 +167,6 @@
   "liquidityProvider": "유동성 제공자 수수료",
   "enterAValid": "Enter a valid slippage percentage",
   "yourTXMayFail": "거래가 실패 할 수 있습니다",
-  "yourTXMayFront": "Your transaction may be frontrun",
   "route": "Route",
   "priceImpact": "가격 영향"
 }

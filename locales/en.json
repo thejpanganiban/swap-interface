@@ -88,7 +88,7 @@
   "forAtLeast": "for at least ",
   "brokenToken": "The selected token is not compatible with BSCswap. Adding liquidity will result in locked funds.",
   "toleranceExplanation": "Lowering this limit decreases your risk of frontrunning. However, this makes more likely that your transaction will fail due to normal price movements.",
-  "tokenSearchPlaceholder": "Search name or paste address",
+  "tokenSearchPlaceholder": "Search name",
   "yourLiquidity": "Your Liquidity",
   "loading": "Loading",
   "connectToViewLiquidity": "Connect to a wallet to view your liquidity.",
@@ -130,8 +130,7 @@
   "connectToWallet": "Connect to a wallet",
   "connectToFind": "Connect to a wallet to find pools",
   "selectToFind": "Select a token to find your liquidity.",
-  "findAToken": "Find a token by searching for its name or symbol or by pasting its address below.",
-  "importAnyToken": "Import any token into your list by pasting the token address into the search field.",
+  "findAToken": "Find a token by searching for its name or symbol.",
   "tokenName": "Token Name",
   "havingTrouble": "Having trouble finding a token?",
   "commonBases": "Common bases",
@@ -171,7 +170,7 @@
   "liquidityProvider": "Liquidity Provider Fee",
   "enterAValid": "Enter a valid slippage percentage",
   "yourTXMayFail": "Your transaction may fail",
-  "yourTXMayFront": "Your transaction may be frontrun",
   "route": "Route",
-  "priceImpact": "Price Impact"
+  "priceImpact": "Price Impact",
+  "warningHighRisk": "High slippage, you can lose your money"
 }
