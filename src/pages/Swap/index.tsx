@@ -97,7 +97,7 @@ export default function Swap() {
     currencyBalances,
     parsedAmount,
     currencies,
-    inputError: swapInputError
+    inputError: swapInputError,
   } = useDerivedSwapInfo()
   const { wrapType, execute: onWrap, inputError: wrapInputError } = useWrapCallback(
     currencies[Field.INPUT],
@@ -435,14 +435,8 @@ export default function Swap() {
                   )}
                   {currencies[Field.INPUT]?.symbol === 'THUGS' && (
                     <RowBetween align="center">
-                      <ClickableText
-                        fontWeight={500}
-                        fontSize={14}
-                        color={theme.text2}
-                        onClick={() => {
-                          setSlippage(BurnRate * 1.8 * 100)
-                        }}
-                      >
+                      {setSlippage(BurnRate * 1.8 * 100)}
+                      <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={() => {}}>
                         Thugs Burn Rate
                       </ClickableText>
                       <ClickableText fontWeight={500} fontSize={14} color={theme.text2}>
