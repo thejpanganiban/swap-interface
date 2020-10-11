@@ -118,37 +118,25 @@ export default function Menu() {
             <PieChart size={14} />
             {t('analytics')}
           </MenuItem>
-          <MenuItem id="link" href="https://twitter.com/bscswapprotocol">
+          <MenuItem id="link" href="https://twitter.com/thugsfinance">
             <Send size={14} />
             Twitter
           </MenuItem>
-          <MenuItem id="link" href="https://t.me/bscswap">
+          <MenuItem id="link" href="https://t.me/thugsfinance">
             <Send size={14} />
             {t('telegram')}
           </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/mCZSA3w">
+          <MenuItem id="link" href="https://discord.gg/DVEpBpq">
             <MessageCircle size={14} />
             {t('discord')}
-          </MenuItem>
-          <MenuItem id="link" href="https://bscswap.com/WeChat.jpg">
-            <MessageCircle size={14} />
-            WeChat
           </MenuItem>
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />
             {t('code')}
           </MenuItem>
-          <MenuItem id="link" href="https://medium.com/@bscswapprotocol">
+          <MenuItem id="link" href="https://medium.com/@thugsfinance">
             <BookOpen size={14} />
             Medium
-          </MenuItem>
-          <MenuItem id="link" href="https://coinmarketcap.com/exchanges/bscswap">
-            <CheckCircle size={14} />
-            CoinMarketCap
-          </MenuItem>
-          <MenuItem id="link" href={getEtherscanLink(chainId, '0xd954551853F55deb4Ae31407c423e67B1621424A', 'address')}>
-            <BookOpen size={14} />
-            {t('bscscancontract')}
           </MenuItem>
         </MenuFlyout>
       )}
