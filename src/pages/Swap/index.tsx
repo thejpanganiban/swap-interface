@@ -370,7 +370,7 @@ export default function Swap() {
                   )}
                   {currencies[Field.INPUT]?.symbol === 'THUGS' && (
                     <RowBetween align="center">
-                      {setSlippage(BurnRate * 1.8 * 100)}
+                      {setSlippage(Math.ceil(BurnRate * 1.8 * 100))}
                       <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={() => {}}>
                         Thugs Burn Rate
                       </ClickableText>
