@@ -275,37 +275,7 @@ export default function Swap() {
 
   // This will check to see if the user has selected Syrup to either buy or sell.
   // If so, they will be alerted with a warning message.
-  const checkForSyrup = useCallback((selected: string, purchaseType: string) => {
-    if (selected === 'syrup') {
-      setIsSyrup(true)
-      setSyrupTransactionType(purchaseType)
-    }
-  }, [])
 
-  const handleInputSelect = useCallback(
-    inputCurrency => {
-      setApprovalSubmitted(false) // reset 2 step UI for approvals
-      onCurrencySelection(Field.INPUT, inputCurrency)
-      if (inputCurrency.symbol.toLowerCase() === 'syrup') {
-        checkForSyrup(inputCurrency.symbol.toLowerCase(), 'Selling')
-      }
-    },
-    [onCurrencySelection, checkForSyrup]
-  )
-
-  const handleMaxInput = useCallback(() => {
-    maxAmountInput && onUserInput(Field.INPUT, maxAmountInput.toExact())
-  }, [maxAmountInput, onUserInput])
-
-  const handleOutputSelect = useCallback(
-    outputCurrency => {
-      onCurrencySelection(Field.OUTPUT, outputCurrency)
-      if (outputCurrency.symbol.toLowerCase() === 'syrup') {
-        checkForSyrup(outputCurrency.symbol.toLowerCase(), 'Buying')
-      }
-    },
-    [onCurrencySelection, checkForSyrup]
-  )
 
   return (
     <>
@@ -347,8 +317,6 @@ export default function Swap() {
               showMaxButton={!atMaxAmountInput}
               currency={currencies[Field.INPUT]}
               onUserInput={handleTypeInput}
-              onMax={handleMaxInput}
-              onCurrencySelect={handleInputSelect}
               onMax={() => {
                 maxAmountInput && onUserInput(Field.INPUT, maxAmountInput.toExact())
               }}
@@ -428,7 +396,7 @@ export default function Swap() {
                         Slippage Tolerance
                       </ClickableText>
 
-                      <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={toggleSettings}>
+                      <ClickableText fontWeight={500} fontSize={14} color={theme.colors.text2} onClick={toggleSettings}>
                         {allowedSlippage ? allowedSlippage / 100 : '-'}%
                       </ClickableText>
                     </RowBetween>
@@ -436,10 +404,10 @@ export default function Swap() {
                   {currencies[Field.INPUT]?.symbol === 'THUGS' && (
                     <RowBetween align="center">
                       {setSlippage(Math.ceil(BurnRate * 1.8 * 100))}
-                      <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={() => {}}>
+                      <ClickableText fontWeight={500} fontSize={14} color='#ce5c00' onClick={() => {}}>
                         Thugs Burn Rate
                       </ClickableText>
-                      <ClickableText fontWeight={500} fontSize={14} color={theme.text2}>
+                      <ClickableText fontWeight={500} fontSize={14} color='#ce5c00'>
                         {BurnRate <= 0 ? '-' : BurnRate + '%'}
                       </ClickableText>
                     </RowBetween>

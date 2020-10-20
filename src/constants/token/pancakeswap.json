@@ -19,6 +19,22 @@
       "logoURI": "/images/coins/BUSD.png"
     },
     {
+      "name": "Thugs.Finance",
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "symbol": "THUGS",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://tokens.thugs.fi/images/0xE10e9822A5de22F8761919310DDA35CD997d63c0.png"
+    },
+    {
+      "name": "DrugsToken",
+      "address": "0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7",
+      "symbol": "DRUGS",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://tokens.thugs.fi/images/0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7.png"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",

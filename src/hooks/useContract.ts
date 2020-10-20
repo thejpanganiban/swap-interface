@@ -8,7 +8,6 @@ import { ERC20_BYTES32_ABI } from '../constants/abis/erc20'
 import ERC20_ABI from '../constants/abis/erc20.json'
 import { MIGRATOR_ABI, MIGRATOR_ADDRESS } from '../constants/abis/migrator'
 import UNISOCKS_ABI from '../constants/abis/unisocks.json'
-import ERC20_ABI from '../constants/abis/erc20.json'
 import THUGSINFO_ABI from '../constants/abis/thugsinfo.json'
 
 import WETH_ABI from '../constants/abis/weth.json'
