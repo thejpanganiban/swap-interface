@@ -1,15 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import TranslatedText from '../TranslatedText'
 
 const Nav: React.FC = () => {
   return (
     <StyledNav>
       <StyledAbsoluteLink href="https://traphouse.vip">
         Traphouse
-      </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://exchange.pancakeswap.finance" className="active">
-        <TranslatedText translationId={8}>Exchange</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://pancakeswap.info">
         Pancake Analytics
