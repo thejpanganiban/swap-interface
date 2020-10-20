@@ -1,11 +1,10 @@
 import React, { useRef } from 'react'
-import { Info, BookOpen, Code, PieChart, MessageCircle } from 'react-feather'
+import { Code, PieChart, MessageCircle } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import useToggle from '../../hooks/useToggle'
 import { ExternalLink } from '../Shared'
-import TranslatedText from '../TranslatedText'
 
 const StyledMenuIcon = styled(MenuIcon)`
   path {
@@ -80,8 +79,6 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
-const CODE_LINK = 'https://github.com/pancakeswap'
-
 export default function Menu() {
   const node = useRef<HTMLDivElement>()
   const [open, toggle] = useToggle(false)
@@ -96,25 +93,25 @@ export default function Menu() {
       </StyledMenuButton>
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="/">
-            <Info size={14} />
-            About
-          </MenuItem>
-          <MenuItem id="link" href="https://docs.pancakeswap.finance">
-            <BookOpen size={14} />
-            <TranslatedText translationId={10}>Docs</TranslatedText>
-          </MenuItem>
-          <MenuItem id="link" href={CODE_LINK}>
+          <MenuItem id="link" href="https://github.com/thugs-defi">
             <Code size={14} />
-            Code
+            Github
           </MenuItem>
-          <MenuItem id="link" href="https://t.me/PancakeSwap">
+          <MenuItem id="link" href="https://discord.gg/AJDqFTP">
             <MessageCircle size={14} />
-            <TranslatedText translationId={34}>Telegram</TranslatedText>
+            Discord
+          </MenuItem>
+          <MenuItem id="link" href="https://twitter.com/ThugsFinance">
+            <MessageCircle size={14} />
+            Twitter
+          </MenuItem>
+          <MenuItem id="link" href="https://t.me/thugsfinance">
+            <MessageCircle size={14} />
+            Telegram
           </MenuItem>
           <MenuItem id="link" href="https://pancakeswap.info">
             <PieChart size={14} />
-            Analytics
+            CakeAnalytics
           </MenuItem>
         </MenuFlyout>
       )}

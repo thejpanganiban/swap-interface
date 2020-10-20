@@ -138,28 +138,6 @@
       "logoURI": "/images/coins/BCH-icon.png"
     },
     {
-      "name": "Litecoin Token",
-      "symbol": "LTC",
-      "address": "0x4338665cbb7b2485a8855a139b75d5e34ab0db94",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "/images/coins/LTC-icon.png"
-    },
-    {
-      "name": "Cardano Token",
-      "symbol": "ADA",
-      "address": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
-      "chainId": 56,
-      "decimals": 18
-    },
-    {
-      "name": "Cosmos Token",
-      "symbol": "ATOM",
-      "address": "0x0eb3a705fc54725037cc9e008bdede697f62f335",
-      "chainId": 56,
-      "decimals": 18
-    },
-    {
       "name": "Tezos Token",
       "symbol": "XTZ",
       "address": "0x16939ef78684453bfdfb47825f8a5f714f12623a",
@@ -227,20 +205,6 @@
       "name": "PancakeSwap Token",
       "symbol": "CAKE",
       "address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
-      "chainId": 56,
-      "decimals": 18
-    },
-    {
-      "name": "Streamity",
-      "symbol": "STM",
-      "address": "0x90df11a8cce420675e73922419e3f4f3fe13cccb",
-      "chainId": 56,
-      "decimals": 18
-    },
-    {
-      "name": "Ankr",
-      "symbol": "ANKR",
-      "address": "0xf307910a4c7bbc79691fd374889b36d8531b08e3",
       "chainId": 56,
       "decimals": 18
     },
@@ -332,21 +296,6 @@
       "name": "fry.world",
       "symbol": "FRIES",
       "address": "0x393B312C01048b3ed2720bF1B090084C09e408A1",
-      "chainId": 56,
-      "decimals": 18
-    },
-    {
-      "name": "StableXSwap",
-      "symbol": "STAX",
-      "address": "0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4",
-      "chainId": 56,
-      "decimals": 18,
-      "logoURI": "/images/coins/STAX.png"
-    },
-    {
-      "name": "Filecoin",
-      "symbol": "FIL",
-      "address": "0x0d8ce2a99bb6e3b7db580ed848240e4a0f9ae153",
       "chainId": 56,
       "decimals": 18
     }

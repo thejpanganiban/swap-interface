@@ -26,7 +26,6 @@ import { EN } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import { allLanguages } from '../constants/localisation/languageCodes'
-import backimg from '../assets/images/bg.png'
 import LogoH from '../assets/images/logoh.png'
 
 const AppWrapper = styled.div`
@@ -67,12 +66,6 @@ const Marginer = styled.div`
 const LogoTitle = styled.img`
   width: 350px;
   margin-top: 20px;
-`
-
-const BackImage = styled.img`
-  position: fixed;
-  top: 5%;
-  width: 100%;
 `
 
 export default function App() {
@@ -142,7 +135,6 @@ export default function App() {
                 <Header />
               </HeaderWrapper>
               <BodyWrapper>
-                <BackImage src={backimg} alt="bg" />
                 <Popups />
                 <Web3ReactManager>
                   <Switch>
