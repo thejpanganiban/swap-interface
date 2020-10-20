@@ -13,7 +13,7 @@ export default {
     // backgrounds / greys
     bg0: '#181818',
     bg1: '#2e3436',
-    bg2: '#2b233f',
+    bg2: '#181818',
     bg3: '#40444F',
     bg4: '#565A69',
     bg5: '#6C7284',
