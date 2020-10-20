@@ -5,8 +5,8 @@ export default {
   colors: {
     ...base.colors,
     shadow1: '#2F80ED',
-    text1: '#452A7A',
-    text2: '#7645D9',
+    text1: '#000000',
+    text2: '#2e3436',
     text3: '#888D9B',
     text4: '#C3C5CB',
 
