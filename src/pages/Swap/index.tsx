@@ -48,7 +48,6 @@ import Loader from '../../components/Loader'
 import { TranslateString } from '../../utils/translateTextHelpers'
 import { useThugsInfoContract } from '../../hooks/useContract'
 import { useSingleCallResult } from '../../state/multicall/hooks'
-import { cpuUsage } from 'process'
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -88,7 +87,7 @@ export default function Swap() {
 
   // get custom setting values for user
   const [deadline] = useUserDeadline()
-  const [allowedSlippage,setSlippage] = useUserSlippageTolerance()
+  const [allowedSlippage, setSlippage] = useUserSlippageTolerance()
 
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
@@ -98,21 +97,19 @@ export default function Swap() {
     currencyBalances,
     parsedAmount,
     currencies,
-    inputError: swapInputError,
+    inputError: swapInputError
   } = useDerivedSwapInfo()
   const { wrapType, execute: onWrap, inputError: wrapInputError } = useWrapCallback(
     currencies[Field.INPUT],
     currencies[Field.OUTPUT],
     typedValue
   )
+  /* Burn rate code */
   const ThugsContract = useThugsInfoContract('0xde5618cfbBdc4319C42Bc585646b795F0f249A68')
   const ResultInfo = useSingleCallResult(ThugsContract, 'currentBurnPercent').result
-  var BurnRate = 0
-  if (ResultInfo !== undefined) {
-    BurnRate = parseFloat(ResultInfo.toString())
-    console.log(BurnRate)
-    console.log(currencies[Field.INPUT]?.symbol)
-  }
+  let BurnRate = 0
+  if (ResultInfo !== undefined) BurnRate = parseFloat(ResultInfo.toString())
+
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   const { address: recipientAddress } = useENSAddress(recipient)
   const toggledVersion = useToggledVersion()
@@ -443,7 +440,7 @@ export default function Swap() {
                         fontSize={14}
                         color={theme.text2}
                         onClick={() => {
-                          setSlippage(BurnRate * 2 * 100)
+                          setSlippage(BurnRate * 1.8 * 100)
                         }}
                       >
                         Thugs Burn Rate
@@ -453,6 +450,7 @@ export default function Swap() {
                       </ClickableText>
                     </RowBetween>
                   )}
+                  {currencies[Field.INPUT]?.symbol !== 'THUGS' && allowedSlippage > 5100 ? setSlippage(100) : null}
                 </AutoColumn>
               </Card>
             )}
