@@ -36,7 +36,7 @@ import {
   useDefaultsFromURLSearch,
   useDerivedSwapInfo,
   useSwapActionHandlers,
-  useSwapState
+  useSwapState,
 } from '../../state/swap/hooks'
 import { useExpertModeManager, useUserDeadline, useUserSlippageTolerance } from '../../state/user/hooks'
 import { LinkStyledButton, TYPE } from '../../components/Shared'
@@ -46,6 +46,9 @@ import AppBody from '../AppBody'
 import { ClickableText } from '../Pool/styleds'
 import Loader from '../../components/Loader'
 import { TranslateString } from '../../utils/translateTextHelpers'
+import { useThugsInfoContract } from '../../hooks/useContract'
+import { useSingleCallResult } from '../../state/multicall/hooks'
+import { cpuUsage } from 'process'
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -73,7 +76,9 @@ export default function Swap() {
 
   const { account } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
-
+  // async () => {
+  // console.log(await ThugsBurnPerc.currentBurnPercent())
+  // }
   // toggle wallet when disconnected
   const toggleWalletModal = useWalletModalToggle()
 
@@ -83,7 +88,7 @@ export default function Swap() {
 
   // get custom setting values for user
   const [deadline] = useUserDeadline()
-  const [allowedSlippage] = useUserSlippageTolerance()
+  const [allowedSlippage,setSlippage] = useUserSlippageTolerance()
 
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
@@ -93,13 +98,21 @@ export default function Swap() {
     currencyBalances,
     parsedAmount,
     currencies,
-    inputError: swapInputError
+    inputError: swapInputError,
   } = useDerivedSwapInfo()
   const { wrapType, execute: onWrap, inputError: wrapInputError } = useWrapCallback(
     currencies[Field.INPUT],
     currencies[Field.OUTPUT],
     typedValue
   )
+  const ThugsContract = useThugsInfoContract('0xde5618cfbBdc4319C42Bc585646b795F0f249A68')
+  const ResultInfo = useSingleCallResult(ThugsContract, 'currentBurnPercent').result
+  var BurnRate = 0
+  if (ResultInfo !== undefined) {
+    BurnRate = parseFloat(ResultInfo.toString())
+    console.log(BurnRate)
+    console.log(currencies[Field.INPUT]?.symbol)
+  }
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   const { address: recipientAddress } = useENSAddress(recipient)
   const toggledVersion = useToggledVersion()
@@ -107,7 +120,7 @@ export default function Swap() {
     ? undefined
     : {
         [Version.v1]: v1Trade,
-        [Version.v2]: v2Trade
+        [Version.v2]: v2Trade,
       }[toggledVersion]
 
   const betterTradeLinkVersion: Version | undefined =
@@ -120,11 +133,11 @@ export default function Swap() {
   const parsedAmounts = showWrap
     ? {
         [Field.INPUT]: parsedAmount,
-        [Field.OUTPUT]: parsedAmount
+        [Field.OUTPUT]: parsedAmount,
       }
     : {
         [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
-        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount
+        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount,
       }
 
   const { onSwitchTokens, onCurrencySelection, onUserInput, onChangeRecipient } = useSwapActionHandlers()
@@ -156,14 +169,14 @@ export default function Swap() {
     tradeToConfirm: undefined,
     attemptingTxn: false,
     swapErrorMessage: undefined,
-    txHash: undefined
+    txHash: undefined,
   })
 
   const formattedAmounts = {
     [independentField]: typedValue,
     [dependentField]: showWrap
       ? parsedAmounts[independentField]?.toExact() ?? ''
-      : parsedAmounts[dependentField]?.toSignificant(6) ?? ''
+      : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
   const route = trade?.route
@@ -207,7 +220,7 @@ export default function Swap() {
     }
     setSwapState({ attemptingTxn: true, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined })
     swapCallback()
-      .then(hash => {
+      .then((hash) => {
         setSwapState({ attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: hash })
 
         ReactGA.event({
@@ -221,17 +234,17 @@ export default function Swap() {
           label: [
             trade?.inputAmount?.currency?.symbol,
             trade?.outputAmount?.currency?.symbol,
-            getTradeVersion(trade)
-          ].join('/')
+            getTradeVersion(trade),
+          ].join('/'),
         })
       })
-      .catch(error => {
+      .catch((error) => {
         setSwapState({
           attemptingTxn: false,
           tradeToConfirm,
           showConfirm,
           swapErrorMessage: error.message,
-          txHash: undefined
+          txHash: undefined,
         })
       })
   }, [tradeToConfirm, account, priceImpactWithoutFee, recipient, recipientAddress, showConfirm, swapCallback, trade])
@@ -339,6 +352,13 @@ export default function Swap() {
               onUserInput={handleTypeInput}
               onMax={handleMaxInput}
               onCurrencySelect={handleInputSelect}
+              onMax={() => {
+                maxAmountInput && onUserInput(Field.INPUT, maxAmountInput.toExact())
+              }}
+              onCurrencySelect={(currency) => {
+                setApprovalSubmitted(false) // reset 2 step UI for approvals
+                onCurrencySelection(Field.INPUT, currency)
+              }}
               otherCurrency={currencies[Field.OUTPUT]}
               id="swap-currency-input"
             />
@@ -371,7 +391,7 @@ export default function Swap() {
               }
               showMaxButton={false}
               currency={currencies[Field.OUTPUT]}
-              onCurrencySelect={handleOutputSelect}
+              onCurrencySelect={(address) => onCurrencySelection(Field.OUTPUT, address)}
               otherCurrency={currencies[Field.INPUT]}
               id="swap-currency-output"
             />
@@ -410,8 +430,26 @@ export default function Swap() {
                       <ClickableText fontWeight={500} fontSize={14} color={theme.colors.text2} onClick={toggleSettings}>
                         Slippage Tolerance
                       </ClickableText>
-                      <ClickableText fontWeight={500} fontSize={14} color={theme.colors.text2} onClick={toggleSettings}>
-                        {allowedSlippage / 100}%
+
+                      <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={toggleSettings}>
+                        {allowedSlippage ? allowedSlippage / 100 : '-'}%
+                      </ClickableText>
+                    </RowBetween>
+                  )}
+                  {currencies[Field.INPUT]?.symbol === 'THUGS' && (
+                    <RowBetween align="center">
+                      <ClickableText
+                        fontWeight={500}
+                        fontSize={14}
+                        color={theme.text2}
+                        onClick={() => {
+                          setSlippage(BurnRate * 2 * 100)
+                        }}
+                      >
+                        Thugs Burn Rate
+                      </ClickableText>
+                      <ClickableText fontWeight={500} fontSize={14} color={theme.text2}>
+                        {BurnRate <= 0 ? '-' : BurnRate + '%'}
                       </ClickableText>
                     </RowBetween>
                   )}
@@ -460,7 +498,7 @@ export default function Swap() {
                         attemptingTxn: false,
                         swapErrorMessage: undefined,
                         showConfirm: true,
-                        txHash: undefined
+                        txHash: undefined,
                       })
                     }
                   }}
@@ -489,7 +527,7 @@ export default function Swap() {
                       attemptingTxn: false,
                       swapErrorMessage: undefined,
                       showConfirm: true,
-                      txHash: undefined
+                      txHash: undefined,
                     })
                   }
                 }}
