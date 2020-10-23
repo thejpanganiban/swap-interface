@@ -24,7 +24,7 @@
       "symbol": "THUGS",
       "decimals": 18,
       "chainId": 56,
-      "logoURI": "https://tokens.thugs.fi/images/0xE10e9822A5de22F8761919310DDA35CD997d63c0.png"
+      "logoURI": "/images/coins/0xE10e9822A5de22F8761919310DDA35CD997d63c0.png"
     },
     {
       "name": "DrugsToken",
@@ -32,7 +32,7 @@
       "symbol": "DRUGS",
       "decimals": 18,
       "chainId": 56,
-      "logoURI": "https://tokens.thugs.fi/images/0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7.png"
+      "logoURI": "/images/coins/0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7.png"
     },
     {
       "name": "WBNB Token",
